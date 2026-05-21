@@ -1,0 +1,70 @@
+@use "variables" as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-row {
+  display: flex;
+  align-items: center;
+}
+
+@mixin card {
+  background: $white;
+  border-radius: $radius-sm;
+  box-shadow: $card-shadow;
+  border: 1px solid $border-color;
+}
+
+@mixin input-base {
+  width: 100%;
+  height: 50px;
+  border: 2px solid $input-border;
+  border-radius: $radius-input;
+  padding: 0 16px;
+  font-family: $font-work-sans;
+  font-size: 14px;
+  color: $body-text;
+  background: $white;
+  outline: none;
+
+  &::placeholder {
+    color: $body-text;
+    opacity: 0.6;
+  }
+
+  &:focus {
+    border-color: $teal;
+  }
+}
+
+// for Typography
+@mixin label-text {
+  font-family: $font-work-sans;
+  font-size: 12px;
+  font-weight: 600;
+  color: $body-text;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// for Responsive
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
