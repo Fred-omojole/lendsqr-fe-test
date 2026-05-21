@@ -1,0 +1,137 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.loginContainer {
+  display: grid;
+  grid-template-columns: 51.1fr 48.9fr;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.leftContainer {
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+
+  .logo {
+    margin-bottom: 19px;
+    margin-left: 40px;
+    margin-top: 20px;
+  }
+
+  .illustration {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+.rightContainer {
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 97px;
+  box-shadow: $login-panel-shadow;
+  position: relative;
+  z-index: 1;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 447px;
+}
+
+.heading {
+  font-family: $font-work-sans;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: normal;
+  color: $primary-blue;
+  margin-bottom: 10px;
+  letter-spacing: -1.5px;
+}
+
+.subheading {
+  font-family: $font-work-sans;
+  font-size: 16px;
+  font-weight: 400;
+  color: $body-text;
+  margin-bottom: 60px;
+  line-height: normal;
+  font-style: normal;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.input {
+  @include input-base;
+}
+
+.forgotPassword {
+  font-family: $font-work-sans;
+  font-size: 12px;
+  font-weight: 600;
+  color: $teal;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  align-self: flex-start;
+  margin-top: -8px;
+}
+
+.submitButton {
+  height: 48px;
+  background-color: $teal;
+  color: $white;
+  border: none;
+  border-radius: $radius-sm;
+  font-family: $font-work-sans;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  margin-top: 6px;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: darken($teal, 5%);
+  }
+}
+
+@include mobile {
+  .loginContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .leftContainer {
+    display: none;
+  }
+
+  .rightContainer {
+    padding: 40px 20px;
+    box-shadow: none;
+  }
+}
+
+@include tablet {
+  .loginContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .leftContainer {
+    display: none;
+  }
+
+  .rightContainer {
+    padding: 40px 50px;
+    box-shadow: none;
+  }
+}

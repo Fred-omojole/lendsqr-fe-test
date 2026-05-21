@@ -41,8 +41,15 @@
     opacity: 0.6;
   }
 
-  &:focus {
-    border-color: $teal;
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px $white inset;
+    -webkit-text-fill-color: $body-text;
+    caret-color: $body-text;
+    border: 2px solid $input-border;
+    transition: background-color 9999s ease-in-out 0s;
   }
 }
 

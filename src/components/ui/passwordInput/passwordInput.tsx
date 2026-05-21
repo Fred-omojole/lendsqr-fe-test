@@ -3,8 +3,8 @@ import React from "react";
 import styles from "./passwordInput.module.scss";
 
 interface PasswordInputProps {
-  value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const PasswordInput = ({ value, onChange }: PasswordInputProps) => {
@@ -15,11 +15,11 @@ const PasswordInput = ({ value, onChange }: PasswordInputProps) => {
   };
 
   return (
-    <div>
+    <div className={styles.passwordWrapper}>
       <input
         type={showPassword ? "text" : "password"}
         placeholder="Password"
-        className="password-input"
+        className={styles.passwordInput}
         value={value}
         onChange={onChange}
       />

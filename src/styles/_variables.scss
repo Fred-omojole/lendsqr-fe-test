@@ -14,17 +14,19 @@ $status-inactive: #545f7d;
 // for Borders & Shadows
 $border-color: rgba(33, 63, 125, 0.06);
 $card-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+$login-panel-shadow: 0px 15px 90px rgba(0, 0, 0, 0.03);
 $input-border: rgba(84, 95, 125, 0.15);
 
 // for Typography
-$font-work-sans: "Work Sans", sans-serif;
-$font-avenir: "Nunito", sans-serif;
+$font-work-sans: var(--font-work-sans), sans-serif;
+$font-avenir: var(--font-nunito), sans-serif;
 
 // for Spacing
 $sidebar-width: 283px;
 $topnav-height: 100px;
 
 // for Border Radius
+$radius-input: 5px;
 $radius-sm: 4px;
 $radius-md: 8px;
 $radius-pill: 100px;
