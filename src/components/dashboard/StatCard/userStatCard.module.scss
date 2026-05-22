@@ -1,0 +1,43 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.statCard {
+  width: 240px;
+  background-color: $white;
+  padding: 20px;
+  border-radius: $radius-sm;
+  box-shadow: $card-shadow;
+  border: 1px solid $border-color;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: start;
+    align-items: start;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .title {
+    font-family: $font-work-sans;
+    font-size: 14px;
+    font-weight: 500;
+    color: $body-text;
+    line-height: normal;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  .count {
+    font-family: $font-work-sans;
+    font-size: 24px;
+    font-weight: 600;
+    color: $primary-blue;
+    line-height: normal;
+    font-style: normal;
+  }
+}

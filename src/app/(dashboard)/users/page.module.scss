@@ -1,0 +1,19 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.title {
+  margin-left: 42px;
+  color: $primary-blue;
+  font-family: $font-work-sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.statCards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px 0 40px;
+}

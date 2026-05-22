@@ -63,9 +63,9 @@
   font-size: 16px;
   color: $primary-blue;
   opacity: 0.6;
-  //   transition:
-  //     background-color 0.15s ease,
-  //     opacity 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    opacity 0.15s ease;
 
   &:hover {
     background-color: rgba($teal, 0.06);
