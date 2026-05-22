@@ -1,0 +1,150 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.sidebar {
+  background-color: $white;
+  width: $sidebar-width;
+  height: calc(100vh - #{$topnav-height});
+  position: sticky;
+  top: $topnav-height;
+  box-shadow: $sidebar-shadow;
+  overflow: hidden;
+}
+
+.scroll {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0 24px;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($body-text, 0.2);
+    border-radius: 3px;
+  }
+}
+
+.switchOrg {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  padding: 8px 30px;
+  height: 40px;
+  font-family: $font-work-sans;
+  font-size: 16px;
+  color: $primary-blue;
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: 30px;
+
+  .label {
+    flex: 1;
+  }
+
+  .chevron {
+    display: inline-flex;
+    color: $primary-blue;
+  }
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  padding: 0 30px;
+  font-family: $font-work-sans;
+  font-size: 16px;
+  color: $primary-blue;
+  opacity: 0.6;
+  //   transition:
+  //     background-color 0.15s ease,
+  //     opacity 0.15s ease;
+
+  &:hover {
+    background-color: rgba($teal, 0.06);
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .stripe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: transparent;
+  }
+
+  &.active {
+    background-color: rgba($teal, 0.06);
+    opacity: 1;
+
+    .stripe {
+      background-color: $teal;
+    }
+  }
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: $primary-blue;
+}
+
+.navGroup {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.groupName {
+  font-family: $font-work-sans;
+  font-size: 12px;
+  font-weight: 500;
+  color: $body-text;
+  padding: 0 30px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.footer {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba($body-text, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  padding: 0 30px;
+  height: 40px;
+  font-family: $font-work-sans;
+  font-size: 16px;
+  color: $primary-blue;
+  cursor: pointer;
+  text-align: left;
+}
+
+.version {
+  font-family: $font-work-sans;
+  font-size: 12px;
+  color: $primary-blue;
+  padding: 0 30px;
+}

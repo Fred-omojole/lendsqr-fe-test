@@ -1,0 +1,79 @@
+@use "../../../styles//variables" as *;
+@use "../../../styles//mixins" as *;
+
+.navContainer {
+  @include flex-between;
+  padding: 20px 40px;
+  background-color: $white;
+  box-shadow: $nav-shadow;
+  height: $topnav-height;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .logo {
+  }
+
+  .searchContainer {
+    display: flex;
+    align-items: center;
+    width: 400px;
+
+    .searchInput {
+      @include input-base;
+      border-radius: 8px 0 0 8px;
+      border-right: none;
+      flex: 1;
+    }
+
+    .searchIcon {
+      height: 50px;
+      width: 56px;
+      background-color: $teal;
+      border-radius: 0 8px 8px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .actionContainer {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    .actionText {
+      color: $primary_blue;
+      text-decoration: underline;
+      font-weight: 400;
+      font-size: 16px;
+      font-style: normal;
+      text-underline-offset: auto;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      .profileImage {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
+
+      .profileName {
+        font-family: $font-work-sans;
+        font-size: 20px;
+        font-weight: 400;
+        color: $body-text;
+      }
+
+      .arrowIcon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
