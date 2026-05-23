@@ -1,10 +1,24 @@
 "use client";
 import styles from "./TopNav.module.scss";
 import Image from "next/image";
+import { HiOutlineMenu } from "react-icons/hi";
 
-const TopNav = () => {
+interface TopNavProps {
+  onMenuClick?: () => void;
+}
+
+const TopNav = ({ onMenuClick }: TopNavProps) => {
   return (
     <nav className={styles.navContainer}>
+      <button
+        type="button"
+        className={styles.hamburger}
+        onClick={onMenuClick}
+        aria-label="Open menu"
+      >
+        <HiOutlineMenu size={24} />
+      </button>
+
       <Image
         className={styles.logo}
         src="/image/Group.png"

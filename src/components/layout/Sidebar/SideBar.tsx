@@ -85,11 +85,22 @@ const navGroups: NavGroup[] = [
   },
 ];
 
-const SideBar = () => {
+interface SideBarProps {
+  mobileOpen?: boolean;
+  onClose?: () => void;
+}
+
+const SideBar = ({ mobileOpen = false, onClose }: SideBarProps) => {
   const pathname = usePathname();
 
   return (
-    <aside className={styles.sidebar}>
+    <>
+      {mobileOpen && (
+        <div className={styles.backdrop} onClick={onClose} aria-hidden />
+      )}
+      <aside
+        className={`${styles.sidebar} ${mobileOpen ? styles.sidebarOpen : ""}`}
+      >
       <div className={styles.scroll}>
         <button type="button" className={styles.switchOrg}>
           <span className={styles.iconWrap}>
@@ -103,7 +114,12 @@ const SideBar = () => {
 
         {standaloneItems.map(({ label, icon, path }) => {
           return (
-            <Link href={path} key={label} className={styles.navItem}>
+            <Link
+              href={path}
+              key={label}
+              className={styles.navItem}
+              onClick={onClose}
+            >
               <span className={styles.stripe} aria-hidden />
               <span className={styles.iconWrap}>
                 <Image src={icon} alt="" width={16} height={16} />
@@ -117,12 +133,14 @@ const SideBar = () => {
           <div key={groupName} className={styles.navGroup}>
             <p className={styles.groupName}>{groupName}</p>
             {items.map(({ label, icon, path }) => {
-              const isActive = pathname === path;
+              const isActive =
+                pathname === path || pathname.startsWith(`${path}/`);
               return (
                 <Link
                   href={path}
                   key={label}
                   className={`${styles.navItem} ${isActive ? styles.active : ""}`}
+                  onClick={onClose}
                 >
                   <span className={styles.stripe} aria-hidden />
                   <span className={styles.iconWrap}>
@@ -146,6 +164,7 @@ const SideBar = () => {
         </div>
       </div>
     </aside>
+    </>
   );
 };
 

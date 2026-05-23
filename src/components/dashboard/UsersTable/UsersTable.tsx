@@ -74,7 +74,7 @@ const UsersTable = ({ users, initialPageSize = 10 }: UsersTableProps) => {
             {pageUsers.map((user) => (
               <tr key={user.id}>
                 <td>{user.orgName}</td>
-                <td>{user.userName}</td>
+                <td>{user.fullName}</td>
                 <td>{user.email}</td>
                 <td>{user.phoneNumber}</td>
                 <td>{dayjs(user.dateJoined).format(DATE_FORMAT)}</td>

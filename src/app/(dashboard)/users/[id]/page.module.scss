@@ -1,0 +1,266 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.page {
+  padding: 40px;
+  font-family: $font-work-sans;
+  color: $body-text;
+
+  @include tablet {
+    padding: 24px;
+  }
+
+  @include mobile {
+    padding: 16px;
+  }
+}
+
+.message {
+  padding: 40px;
+  font-family: $font-work-sans;
+  color: $body-text;
+
+  a {
+    color: $teal;
+    margin-left: 8px;
+  }
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: $body-text;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.heading {
+  color: $primary-blue;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.headerActions {
+  display: flex;
+  gap: 20px;
+
+  @include mobile {
+    width: 100%;
+    gap: 12px;
+
+    button {
+      flex: 1;
+    }
+  }
+}
+
+.blacklistBtn,
+.activateBtn {
+  height: 40px;
+  padding: 0 16px;
+  background: $white;
+  font-family: $font-work-sans;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: $radius-sm;
+  cursor: pointer;
+}
+
+.blacklistBtn {
+  color: $status-blacklisted;
+  border: 1px solid $status-blacklisted;
+}
+
+.activateBtn {
+  color: $teal;
+  border: 1px solid $teal;
+}
+
+// Summary card
+.summaryCard {
+  background-color: $white;
+  border: 1px solid $border-color;
+  border-radius: $radius-sm;
+  box-shadow: $card-shadow;
+  padding: 30px 30px 0;
+  margin-bottom: 30px;
+}
+
+.summaryTop {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+
+  @include mobile {
+    gap: 20px;
+  }
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgba($primary-blue, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary-blue;
+  flex-shrink: 0;
+}
+
+.userName {
+  font-size: 22px;
+  font-weight: 500;
+  color: $primary-blue;
+  margin-bottom: 8px;
+}
+
+.userId {
+  font-size: 14px;
+  color: $body-text;
+}
+
+.vDivider {
+  width: 1px;
+  height: 80px;
+  background-color: rgba($primary-blue, 0.2);
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.tierBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tier {
+  display: flex;
+  gap: 6px;
+  font-size: 16px;
+}
+
+.balanceBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.balance {
+  font-size: 22px;
+  font-weight: 500;
+  color: $primary-blue;
+}
+
+.bank {
+  font-size: 12px;
+  color: $body-text;
+}
+
+.tabs {
+  display: flex;
+  gap: 40px;
+  overflow-x: auto;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 14px 0;
+  font-family: $font-work-sans;
+  font-size: 16px;
+  color: $body-text;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+
+.tabActive {
+  color: $teal;
+  border-bottom-color: $teal;
+}
+
+// Details card
+.detailsCard {
+  background-color: $white;
+  border: 1px solid $border-color;
+  border-radius: $radius-sm;
+  box-shadow: $card-shadow;
+  padding: 30px;
+}
+
+.section {
+  padding: 10px 0;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: $primary-blue;
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 30px 30px;
+
+  @include tablet {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.fieldLabel {
+  font-size: 12px;
+  font-weight: 400;
+  color: $body-text;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.fieldValue {
+  font-size: 16px;
+  color: $primary-blue;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hr {
+  border: none;
+  border-top: 1px solid rgba($primary-blue, 0.1);
+  margin: 30px 0;
+}

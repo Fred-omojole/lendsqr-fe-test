@@ -10,14 +10,48 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  gap: 16px;
+
+  @include tablet {
+    padding: 16px 24px;
+  }
+
+  @include mobile {
+    padding: 12px 16px;
+  }
 
   .logo {
+  }
+
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    color: $primary-blue;
+    cursor: pointer;
+
+    @include tablet {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .searchContainer {
     display: flex;
     align-items: center;
     width: 400px;
+    flex-shrink: 1;
+    min-width: 0;
+
+    @include tablet {
+      width: 280px;
+    }
+
+    @include mobile {
+      display: none;
+    }
 
     .searchInput {
       @include input-base;
@@ -51,6 +85,10 @@
       font-size: 16px;
       font-style: normal;
       text-underline-offset: auto;
+
+      @include mobile {
+        display: none;
+      }
     }
 
     .profile {
@@ -68,6 +106,10 @@
         font-size: 20px;
         font-weight: 400;
         color: $body-text;
+
+        @include mobile {
+          display: none;
+        }
       }
 
       .arrowIcon {

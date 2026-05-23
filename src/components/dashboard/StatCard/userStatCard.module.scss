@@ -9,6 +9,14 @@
   box-shadow: $card-shadow;
   border: 1px solid $border-color;
 
+  @include tablet {
+    width: calc(50% - 10px);
+  }
+
+  @include mobile {
+    width: 100%;
+  }
+
   .content {
     display: flex;
     flex-direction: column;

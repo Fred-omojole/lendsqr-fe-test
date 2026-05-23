@@ -14,7 +14,16 @@
 
 .mainContent {
   flex: 1;
+  min-width: 0;
   padding: 40px;
   background-color: $background;
   overflow-y: auto;
+
+  @include tablet {
+    padding: 24px;
+  }
+
+  @include mobile {
+    padding: 16px;
+  }
 }

@@ -9,6 +9,34 @@
   top: $topnav-height;
   box-shadow: $sidebar-shadow;
   overflow: hidden;
+  flex-shrink: 0;
+
+  @include tablet {
+    position: fixed;
+    top: $topnav-height;
+    left: 0;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+  }
+}
+
+.sidebarOpen {
+  @include tablet {
+    transform: translateX(0);
+  }
+}
+
+.backdrop {
+  display: none;
+
+  @include tablet {
+    display: block;
+    position: fixed;
+    inset: $topnav-height 0 0 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 199;
+  }
 }
 
 .scroll {
