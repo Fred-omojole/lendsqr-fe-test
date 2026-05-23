@@ -1,12 +1,15 @@
 "use client";
+import { useMemo, useState } from "react";
 import dayjs from "dayjs";
 import { User } from "@/types/user";
 import StatusPill from "@/components/ui/StatusPill/StatusPill";
+import Pagination from "@/components/ui/Pagination/pagination";
 import styles from "./UsersTable.module.scss";
 import Image from "next/image";
 
 interface UsersTableProps {
   users: User[];
+  initialPageSize?: number;
 }
 
 const columns = [
@@ -20,10 +23,18 @@ const columns = [
 
 const DATE_FORMAT = "MMM D, YYYY h:mm A";
 
-const UsersTable = ({ users }: UsersTableProps) => {
+const UsersTable = ({ users, initialPageSize = 10 }: UsersTableProps) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(initialPageSize);
+
+  const pageUsers = useMemo(() => {
+    const start = (currentPage - 1) * pageSize;
+    return users.slice(start, start + pageSize);
+  }, [users, currentPage, pageSize]);
+
   return (
-    <div className={styles.tableCard}>
-      <div>
+    <>
+      <div className={styles.tableCard}>
         <table className={styles.table}>
           <thead>
             <tr>
@@ -50,7 +61,7 @@ const UsersTable = ({ users }: UsersTableProps) => {
             </tr>
           </thead>
           <tbody>
-            {users.map(
+            {pageUsers.map(
               ({
                 id,
                 orgName,
@@ -89,7 +100,17 @@ const UsersTable = ({ users }: UsersTableProps) => {
           </tbody>
         </table>
       </div>
-    </div>
+      <Pagination
+        currentPage={currentPage}
+        pageSize={pageSize}
+        totalItems={users.length}
+        onPageChange={setCurrentPage}
+        onPageSizeChange={(size) => {
+          setPageSize(size);
+          setCurrentPage(1);
+        }}
+      />
+    </>
   );
 };
 

@@ -1,0 +1,116 @@
+@use "../../../styles/variables" as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: $font-work-sans;
+  color: $body-text;
+  padding: 24px 0;
+}
+
+.showing {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.sizeWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sizeSelect {
+  height: 30px;
+  padding: 0 28px 0 10px;
+  background-color: rgba($primary-blue, 0.1);
+  border: none;
+  border-radius: $radius-sm;
+  font-family: $font-work-sans;
+  font-size: 14px;
+  font-weight: 500;
+  color: $primary-blue;
+  cursor: pointer;
+  appearance: none;
+
+  // &:disabled {
+  //   cursor: default;
+  // }
+}
+
+.sizeCaret {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $primary-blue;
+  pointer-events: none;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pageBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 30px;
+  padding: 0 6px;
+  background: none;
+  border: none;
+  font-family: $font-work-sans;
+  font-size: 16px;
+  font-weight: 400;
+  color: $body-text;
+  opacity: 0.6;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.active {
+    font-weight: 500;
+    opacity: 1;
+  }
+}
+
+.ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 30px;
+  color: $body-text;
+  opacity: 0.6;
+  font-size: 16px;
+}
+
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin: 0 4px;
+  background-color: rgba($primary-blue, 0.1);
+  border: none;
+  border-radius: $radius-sm;
+  color: $primary-blue;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
+    background-color: rgba($primary-blue, 0.18);
+  }
+}
