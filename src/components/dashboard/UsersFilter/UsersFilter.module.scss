@@ -1,0 +1,100 @@
+@use "../../../styles/variables" as *;
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 270px;
+  padding: 30px 20px;
+  background-color: $white;
+  border: 1px solid $border-color;
+  border-radius: $radius-sm;
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  font-family: $font-work-sans;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  span {
+    font-size: 14px;
+    font-weight: 500;
+    color: $primary-blue;
+  }
+
+  input,
+  select {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid $input-border;
+    border-radius: $radius-sm;
+    font-family: $font-work-sans;
+    font-size: 14px;
+    color: $body-text;
+    background-color: $white;
+    outline: none;
+
+    &::placeholder {
+      color: $body-text;
+      opacity: 0.6;
+    }
+  }
+}
+
+.selectWrap {
+  position: relative;
+
+  select {
+    appearance: none;
+    padding-right: 32px;
+    cursor: pointer;
+  }
+}
+
+.caret {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $body-text;
+  pointer-events: none;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+
+  button {
+    flex: 1;
+    height: 40px;
+    border-radius: $radius-sm;
+    font-family: $font-work-sans;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.resetBtn {
+  background: $white;
+  border: 1px solid $body-text;
+  color: $body-text;
+
+  &:hover {
+    background: rgba($body-text, 0.04);
+  }
+}
+
+.filterBtn {
+  background: $teal;
+  border: 1px solid $teal;
+  color: $white;
+
+  &:hover {
+    background: darken($teal, 5%);
+  }
+}

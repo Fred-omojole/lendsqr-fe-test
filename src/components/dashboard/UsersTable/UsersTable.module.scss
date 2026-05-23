@@ -1,10 +1,18 @@
 @use "../../../styles/variables" as *;
 
 .tableCard {
+  position: relative;
   background-color: $white;
   border: 1px solid $border-color;
   border-radius: $radius-sm;
   box-shadow: $card-shadow;
+}
+
+.filterPopover {
+  position: absolute;
+  top: 60px;
+  left: 24px;
+  z-index: 20;
 }
 
 // .tableScroll {

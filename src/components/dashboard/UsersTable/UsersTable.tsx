@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import { User } from "@/types/user";
 import StatusPill from "@/components/ui/StatusPill/StatusPill";
 import Pagination from "@/components/ui/Pagination/pagination";
+import UsersFilter from "@/components/dashboard/UsersFilter/UsersFilter";
 import styles from "./UsersTable.module.scss";
 import Image from "next/image";
 
@@ -26,6 +27,7 @@ const DATE_FORMAT = "MMM D, YYYY h:mm A";
 const UsersTable = ({ users, initialPageSize = 10 }: UsersTableProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(initialPageSize);
+  const [filterOpen, setFilterOpen] = useState(false);
 
   const pageUsers = useMemo(() => {
     const start = (currentPage - 1) * pageSize;
@@ -35,6 +37,11 @@ const UsersTable = ({ users, initialPageSize = 10 }: UsersTableProps) => {
   return (
     <>
       <div className={styles.tableCard}>
+        {filterOpen && (
+          <div className={styles.filterPopover}>
+            <UsersFilter />
+          </div>
+        )}
         <table className={styles.table}>
           <thead>
             <tr>
@@ -46,6 +53,7 @@ const UsersTable = ({ users, initialPageSize = 10 }: UsersTableProps) => {
                       type="button"
                       className={styles.filterBtn}
                       aria-label={`Filter ${col}`}
+                      onClick={() => setFilterOpen((v) => !v)}
                     >
                       <Image
                         src="/image/filter.png"
