@@ -1,4 +1,6 @@
 import UserStatCard from "@/components/dashboard/StatCard/userStatCard";
+import UsersTable from "@/components/dashboard/UsersTable/UsersTable";
+import { generateUsers } from "@/lib/mockData";
 import styles from "./page.module.scss";
 
 type UserStatCardType = {
@@ -15,6 +17,8 @@ const userStatCards: UserStatCardType[] = [
 ];
 
 export default function UsersPage() {
+  const users = generateUsers(10);
+
   return (
     <div>
       <h3 className={styles.title}>Users</h3>
@@ -27,6 +31,9 @@ export default function UsersPage() {
             count={card.count}
           />
         ))}
+      </div>
+      <div className={styles.tableSection}>
+        <UsersTable users={users} />
       </div>
     </div>
   );

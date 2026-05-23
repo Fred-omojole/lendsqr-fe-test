@@ -1,0 +1,35 @@
+@use "../../../styles/variables" as *;
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: $radius-pill;
+  font-family: $font-work-sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.active {
+  color: $status-active;
+  background-color: rgba($status-active, 0.1);
+}
+
+.inactive {
+  color: $status-inactive;
+  background-color: rgba($status-inactive, 0.06);
+}
+
+.pending {
+  color: $status-pending;
+  background-color: rgba($status-pending, 0.1);
+}
+
+.blacklisted {
+  color: $status-blacklisted;
+  background-color: rgba($status-blacklisted, 0.1);
+}

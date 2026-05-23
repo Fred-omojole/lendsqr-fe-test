@@ -1,0 +1,97 @@
+@use "../../../styles/variables" as *;
+
+.tableCard {
+  background-color: $white;
+  border: 1px solid $border-color;
+  border-radius: $radius-sm;
+  box-shadow: $card-shadow;
+}
+
+// .tableScroll {
+//   overflow-x: auto;
+// }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: $font-work-sans;
+  color: $body-text;
+
+  th,
+  td {
+    padding: 14px 12px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 400;
+    vertical-align: middle;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  th:first-child,
+  td:first-child {
+    padding-left: 24px;
+  }
+
+  th:last-child,
+  td:last-child {
+    padding-right: 32px;
+    max-width: 32px;
+    text-align: center;
+  }
+
+  thead {
+    th {
+      padding-top: 24px;
+      padding-bottom: 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: $body-text;
+      text-transform: uppercase;
+    }
+  }
+
+  tbody {
+    tr {
+      border-top: 1px solid rgba($primary-blue, 0.1);
+    }
+
+    tr:hover {
+      background-color: rgba($primary-blue, 0.02);
+    }
+  }
+}
+
+.th {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: $body-text;
+  cursor: pointer;
+}
+
+.moreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  background: none;
+  border: none;
+  color: $primary-blue;
+  cursor: pointer;
+}
