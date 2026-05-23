@@ -1,6 +1,6 @@
 import UserStatCard from "@/components/dashboard/StatCard/userStatCard";
 import UsersTable from "@/components/dashboard/UsersTable/UsersTable";
-import { generateUsers } from "@/lib/mockData";
+import { User } from "@/types/user";
 import styles from "./page.module.scss";
 
 type UserStatCardType = {
@@ -9,6 +9,8 @@ type UserStatCardType = {
   count: string;
 };
 
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+
 const userStatCards: UserStatCardType[] = [
   { icon: "/image/user.png", title: "Users", count: "2,453" },
   { icon: "/image/activeUser.png", title: "Active Users", count: "2,453" },
@@ -16,8 +18,24 @@ const userStatCards: UserStatCardType[] = [
   { icon: "/image/savings.png", title: "Users with Savings", count: "102,453" },
 ];
 
-export default function UsersPage() {
-  const users = generateUsers(10);
+export default async function UsersPage() {
+  let users: User[] = [];
+
+  try {
+    const response = await fetch(`${baseUrl}/api/users`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch users");
+    }
+
+    users = await response.json();
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return (
+      <div className={styles.error}>
+        Failed to load users. Please try again later.
+      </div>
+    );
+  }
 
   return (
     <div>
