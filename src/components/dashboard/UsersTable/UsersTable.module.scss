@@ -48,6 +48,7 @@
     padding-right: 32px;
     max-width: 32px;
     text-align: center;
+    overflow: visible;
   }
 
   thead {
@@ -89,6 +90,18 @@
   border: none;
   color: $body-text;
   cursor: pointer;
+}
+
+.moreWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.menuPopover {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  z-index: 30;
 }
 
 .moreBtn {

@@ -10,6 +10,6 @@ export function getUser(userId: string): User | null {
   return userData ? JSON.parse(userData) : null;
 }
 
-export function deleteUser(userId: string) {
-  localStorage.removeItem(`user_${userId}`);
-}
+// export function deleteUser(userId: string) {
+//   localStorage.removeItem(`user_${userId}`);
+// }

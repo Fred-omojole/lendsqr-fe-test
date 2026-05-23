@@ -1,0 +1,30 @@
+@use "../../../styles/variables" as *;
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  background-color: $white;
+  border: 1px solid $border-color;
+  border-radius: $radius-sm;
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  padding: 8px 0;
+  font-family: $font-work-sans;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: $body-text;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba($primary-blue, 0.04);
+  }
+}

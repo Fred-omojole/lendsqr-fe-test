@@ -5,6 +5,7 @@ import { User } from "@/types/user";
 import StatusPill from "@/components/ui/StatusPill/StatusPill";
 import Pagination from "@/components/ui/Pagination/pagination";
 import UsersFilter from "@/components/dashboard/UsersFilter/UsersFilter";
+import RowActionsMenu from "@/components/dashboard/RowActionsMenu/RowActionsMenu";
 import styles from "./UsersTable.module.scss";
 import Image from "next/image";
 
@@ -28,6 +29,7 @@ const UsersTable = ({ users, initialPageSize = 10 }: UsersTableProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(initialPageSize);
   const [filterOpen, setFilterOpen] = useState(false);
+  const [openMenuId, setOpenMenuId] = useState<string | null>(null);
 
   const pageUsers = useMemo(() => {
     const start = (currentPage - 1) * pageSize;
@@ -69,30 +71,25 @@ const UsersTable = ({ users, initialPageSize = 10 }: UsersTableProps) => {
             </tr>
           </thead>
           <tbody>
-            {pageUsers.map(
-              ({
-                id,
-                orgName,
-                userName,
-                email,
-                phoneNumber,
-                dateJoined,
-                status,
-              }) => (
-                <tr key={id}>
-                  <td>{orgName}</td>
-                  <td>{userName}</td>
-                  <td>{email}</td>
-                  <td>{phoneNumber}</td>
-                  <td>{dayjs(dateJoined).format(DATE_FORMAT)}</td>
-                  <td>
-                    <StatusPill status={status} />
-                  </td>
-                  <td>
+            {pageUsers.map((user) => (
+              <tr key={user.id}>
+                <td>{user.orgName}</td>
+                <td>{user.userName}</td>
+                <td>{user.email}</td>
+                <td>{user.phoneNumber}</td>
+                <td>{dayjs(user.dateJoined).format(DATE_FORMAT)}</td>
+                <td>
+                  <StatusPill status={user.status} />
+                </td>
+                <td>
+                  <div className={styles.moreWrap}>
                     <button
                       type="button"
                       className={styles.moreBtn}
-                      aria-label={`Actions for ${userName}`}
+                      aria-label={`Actions for ${user.userName}`}
+                      onClick={() =>
+                        setOpenMenuId((id) => (id === user.id ? null : user.id))
+                      }
                     >
                       <Image
                         src="/image/more vert.png"
@@ -101,10 +98,15 @@ const UsersTable = ({ users, initialPageSize = 10 }: UsersTableProps) => {
                         height={20}
                       />
                     </button>
-                  </td>
-                </tr>
-              ),
-            )}
+                    {openMenuId === user.id && (
+                      <div className={styles.menuPopover}>
+                        <RowActionsMenu user={user} />
+                      </div>
+                    )}
+                  </div>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
