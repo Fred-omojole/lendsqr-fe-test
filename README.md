@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lendsqr Frontend Assessment
+
+- **whaht I built:** I built a clone of lendsqr's v1 finance dashboard
+- [live link](https://fred-omojole-lendsqr-fe-test.vercel.app/)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+git clone <url>
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js 16
+- Typescript
+- SCSS
+- Faker
+- Jest
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Decisions
 
-## Learn More
+- **API layer:** Due to Next.js inbuilt API features, there was no need to use a third-party mock API service. Next.js handles this natively with `NextRequest` and `NextResponse`. I also had to configure environment variables on Vercel since each route runs as a serverless function.
 
-To learn more about Next.js, take a look at the following resources:
+- **Mock data:** I used Faker to generate 500 realistic mock users. It was my first time using it but it was straightforward to understand and structure after some research.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## What was hard
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **SCSS:** I primarily use Tailwind CSS, so switching to SCSS required learning directives like `@use`, `@include`, and how to structure variables and mixins. It's similar to CSS but more powerful once you understand it.
 
-## Deploy on Vercel
+- **Pagination:** Instead of reaching for a third-party component, I built pagination from scratch, including the data slicing logic and the page number generator with ellipsis handling. That took the most problem-solving of anything in the project.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The project was deployed using a hosting platform called vercel.
+- [live link](https://fred-omojole-lendsqr-fe-test.vercel.app/)
